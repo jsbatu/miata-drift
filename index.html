@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drift Universe | Batutaskin</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="loading">YÜKLENİYOR...</div>
+    
+    <div id="ui-layer">
+        
+        <div id="boss-key-guide">
+            <div class="boss-key-box">
+                <div class="boss-key">ESC</div>
+                <div class="boss-label">HOCA GELİYOR!</div>
+            </div>
+            <div class="boss-sub">ACİL ÇIKIŞ</div>
+        </div>
+
+        <div id="score-container" class="hidden">
+            <div id="combo-text">DRIFT!</div>
+            <div id="score-value">0</div>
+        </div>
+
+        <div id="controls-guide">
+            <div class="row">
+                <div class="key">W</div>
+                <span class="label">GAZ</span>
+            </div>
+            <div class="row">
+                <div class="key-group">
+                    <div class="key">A</div>
+                    <div class="key">D</div>
+                </div>
+                <span class="label">YÖN</span>
+            </div>
+            <div class="row">
+                <div class="key">S</div>
+                <span class="label">GERİ</span>
+            </div>
+            <div class="row">
+                <div class="key space">SPACE</div>
+                <span class="label">YANLA</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

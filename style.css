@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    font-family: 'Press Start 2P', cursive; 
+}
+
+canvas {
+    display: block;
+}
+
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* UI KATMANI */
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* --- SKOR KUTUSU --- */
+#score-container {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%) rotate(-15deg); 
+    text-align: center;
+    transition: opacity 0.2s; 
+    opacity: 0; 
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.hidden { opacity: 0 !important; }
+.visible { opacity: 1 !important; }
+
+#combo-text {
+    font-size: 30px; 
+    color: #ffffff;  
+    text-shadow: 4px 4px 0px #000; 
+    margin-bottom: 10px;
+}
+
+#score-value {
+    font-size: 50px; 
+    color: #ffffff; 
+    text-shadow: 4px 4px 0px #000;
+}
+
+/* --- PATRON TUŞU REHBERİ --- */
+#boss-key-guide {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transform: rotate(5deg) scale(1.8); 
+    transform-origin: top left;
+    transition: opacity 0.5s ease-out; /* JS ile gizlenecek */
+    opacity: 1;
+    z-index: 1000;
+}
+
+.boss-key-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #000; 
+    padding: 10px;
+    border: 4px solid #fff; 
+    box-shadow: 8px 8px 0px #fff; 
+    animation: panicPulse 0.5s infinite;
+}
+
+.boss-key {
+    background: #fff; 
+    color: #000;      
+    font-size: 20px;
+    padding: 10px;
+    border: 3px solid #000;
+    box-shadow: 3px 3px 0px #888;
+}
+
+.boss-label {
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.boss-sub {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #000;       
+    background: #fff;  
+    display: inline-block;
+    padding: 5px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* --- KONTROL REHBERİ --- */
+#controls-guide {
+    position: absolute;
+    bottom: 60px; 
+    right: 60px;  
+    transform: rotate(-15deg) scale(1.5);
+    transition: opacity 0.5s ease-out; /* JS ile gizlenecek */
+    opacity: 1;
+    z-index: 999;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; 
+    animation: fastBreath 0.6s infinite ease-in-out;
+}
+
+.key-group {
+    display: flex;
+    gap: 8px; 
+}
+
+.label {
+    font-size: 12px; 
+    color: #000;       
+    background: #fff;  
+    text-shadow: none;
+    margin-left: 15px;
+    padding: 4px 6px;
+    border: 2px solid #000; 
+    font-weight: bold;
+    box-shadow: 2px 2px 0px #000;
+}
+
+.key {
+    background-color: #000; 
+    color: #fff;            
+    font-size: 16px; 
+    font-weight: bold;
+    padding: 12px 14px; 
+    border: 3px solid #fff; 
+    box-shadow: 4px 4px 0px #fff; 
+    display: inline-block;
+    text-align: center;
+    min-width: 30px;
+}
+
+.space { min-width: 140px; }
+
+/* JS TARAFINDAN EKLENECEK GİZLEME SINIFI */
+.fade-out-now {
+    opacity: 0 !important;
+}
+
+/* --- ANİMASYONLAR --- */
+@keyframes panicPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fastBreath {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } 
+    100% { transform: scale(1); }
+}
+
+.shake {
+    animation: shake 0.5s infinite; /* UI Titremesi (Kamera değil) */
+}
+
+.madness {
+    animation: shake 0.2s infinite; 
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px); }
+    20% { transform: translate(-2px, 0px); }
+    40% { transform: translate(1px, -1px); }
+    60% { transform: translate(-2px, 1px); }
+    80% { transform: translate(-1px, -1px); }
+    100% { transform: translate(1px, -2px); }
+}
